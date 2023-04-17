@@ -1,0 +1,2 @@
+
+int whale_main();

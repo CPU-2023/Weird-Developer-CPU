@@ -1,0 +1,1 @@
+int blue_night_in_jeju_main();
