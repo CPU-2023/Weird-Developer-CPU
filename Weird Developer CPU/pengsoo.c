@@ -96,7 +96,7 @@ char* password = "mirim"; // 실제 비밀번호로 변경해주세요.
 char* database = "CPU";
 
 int pengsoo_main(void) {
-	// PlaySound(TEXT("./sound/marble.wav"), NULL, SND_ASYNC | SND_LOOP);
+	//PlaySound(TEXT("./sound/pengsoo_music.wav"), NULL, SND_ASYNC | SND_LOOP);
 	system("mode con cols=120 lines=30 | title Pengsoo Game");
 	CursorView();
 
@@ -186,7 +186,7 @@ int draw_menu() {
 	gotoxy(85, y++); printf("------(> o <)-------");
 
 
-	gotoxy(x - 2, ++y); printf("♥게임시작");
+	gotoxy(x - 2, ++y); printf("♥ 게임시작");
 	gotoxy(84, y); printf("|");
 	gotoxy(105, y); printf("|");
 	gotoxy(x, y + 1); printf("랭킹보기");
@@ -358,6 +358,7 @@ void gLoop(int map_num) {
 
 void gameOver()
 {
+	PlaySound(NULL, 0, 0);
 	system("cls");
 	int x = 35, y = 4;
 
@@ -391,6 +392,7 @@ void checkScore() {
 
 void gameClear()
 {
+	PlaySound(NULL, 0, 0);
 	int input;
 	system("cls");
 	int x = 35, y = 4;

@@ -13,10 +13,11 @@ void draw_main(void);
 int select_game(void);
 
 int main(void) {
+	PlaySound(TEXT("./sound/main_music.wav"), NULL, SND_ASYNC | SND_LOOP);
 	set_console();
 	int select;
 	while (select = select_game()) {
-		PlaySound(NULL, 0, 0);
+		//PlaySound(NULL, 0, 0);
 
 		switch (select)
 		{
@@ -54,8 +55,6 @@ int main(void) {
 			break;
 		}
 	}
-
-	return 0;
 	return 0;
 }
 
