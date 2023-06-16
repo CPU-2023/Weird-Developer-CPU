@@ -1,4 +1,4 @@
-#include "modules.h"
+ï»¿#include "modules.h"
 
 #define ESC 27
 #define ENTER 13
@@ -9,7 +9,7 @@
 
 
 
-//Ä¿¼­ ¼û±â±â
+//ì»¤ì„œ ìˆ¨ê¸°ê¸°
 void CursorView()
 {
 	CONSOLE_CURSOR_INFO cursorInfo = { 0, };
@@ -33,14 +33,14 @@ void gotoxy_2x(int x, int y)
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
 }
 
-// ÅØ½ºÆ® »ö»ó
+// í…ìŠ¤íŠ¸ ìƒ‰ìƒ
 void setColor(int color) {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
 }
 
 
 void setBackColor(int forground, int background) {
-	HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);	//ÄÜ¼Ö ÇÚµé °¡Á®¿À±â
+	HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);	//ì½˜ì†” í•¸ë“¤ ê°€ì ¸ì˜¤ê¸°
 	int code = forground + background * 16;
 	SetConsoleTextAttribute(consoleHandle, code);
 }
@@ -58,7 +58,7 @@ int keyControl(int x, int y, int num)
 				gotoxy(x - 2, y);
 				printf("  ");
 				gotoxy(x - 2, --y);
-				printf("¢¾");
+				printf(">");
 			}
 			break;
 		}
@@ -67,7 +67,7 @@ int keyControl(int x, int y, int num)
 				gotoxy(x - 2, y);
 				printf("  ");
 				gotoxy(x - 2, ++y);
-				printf("¢¾");
+				printf(">");
 			}
 			break;
 		}
@@ -75,7 +75,7 @@ int keyControl(int x, int y, int num)
 			return y - key;
 		}
 		case ESC: {
-			return 1;
+			return -1;
 		}
 		}
 	}
@@ -98,46 +98,122 @@ void print_by_text(char* text, char* color, int x, int y) {
 }
 
 void rectangle(int width, int height, int x, int y) {
-	// ¦£¡ª¡ª¡ª¡ª¦¤
+	// â”Œâ€•â€•â€•â€•â”
 	for (int i = 1; i < width / 2; i++) {
 		gotoxy((x + width) / 2 - i, y);
-		printf("¦¡");
+		printf("â”€");
 
 		gotoxy((x + width) / 2 + i, y);
-		printf("¦¡");
+		printf("â”€");
 		Sleep(1);
 	}
 	gotoxy(x, y);
-	printf("¦£");
+	printf("â”Œ");
 	gotoxy(x + width, y);
-	printf("¦¤");
+	printf("â”");
 
-	// £ü      £ü
+	// ï½œ      ï½œ
 	for (int i = 1; i < height; i++) {
 		gotoxy(x, y + i);
-		// £ü      £ü
-		printf("¦¢");
+		// ï½œ      ï½œ
+		printf("â”‚");
 
 		for (int j = 1; j < width - 1; j++) {
 			printf(" ");
 		}
 		printf(" ");
 
-		printf("¦¢");
+		printf("â”‚");
 		Sleep(1);
 	}
 
-	// ¦¦¡ª¡ª¡ª¡ª¦¥
+	// â””â€•â€•â€•â€•â”˜
 	gotoxy(x, y + height);
-	printf("¦¦");
+	printf("â””");
 	gotoxy(x + width, y + height);
-	printf("¦¥");
+	printf("â”˜");
 	for (int i = 1; i < width / 2; i++) {
 		gotoxy(x + i, y + height);
-		printf("¦¡");
+		printf("â”€");
 
 		gotoxy((x + width) - i, y + height);
-		printf("¦¡");
+		printf("â”€");
 		Sleep(1);
 	}
+}
+
+// find out the pressed key function (chohadam 21-03-11)
+int get_key(void) {
+	// if keyboard pressed
+	if (_kbhit()) {
+		// return pressed value
+		return _getch();
+	}
+	return 1;
+}
+
+// move to the arrow key function (chohadam 21-03-11)
+void move_arrow_key(
+	char key,
+	int* x,
+	int* y,
+	int size,
+	int y_min,
+	int y_max,
+	int x_min,
+	int x_max
+) {
+	const int Y_MIN = y_min;
+	const int Y_MAX = y_max;
+	const int X_MIN = x_min;
+	const int X_MAX = x_max;
+
+	switch (key) {
+		// pressed ï¿½ï¿½
+	case UP:
+		*y -= size;
+		if (*y < Y_MIN) *y = Y_MAX;
+		break;
+		// pressed ï¿½ï¿½
+	case DOWN:
+		*y += size;
+		if (*y > Y_MAX) *y = Y_MIN;
+		break;
+		// pressed ï¿½ï¿½
+	case LEFT:
+		*x -= size;
+		if (*x < X_MIN) *x = X_MAX;
+		break;
+		// pressed ï¿½ï¿½
+	case RIGHT:
+		*x += size;
+		if (*x > X_MAX) *x = X_MIN;
+		break;
+	}
+}
+
+
+void print_by_name(char* name) {
+	// set color : GREY
+	setColor(darkgray);
+
+	if (strlen(name) > 8) {
+		// 3ï¿½ï¿½ ï¿½Ì»ï¿½ï¿½Ì¸ï¿½
+		gotoxy(88, 28);
+	}
+	else {
+		gotoxy(105, 28);
+	}
+	printf("by %s", name);
+
+	setColor(white);
+}
+
+void print_main_text(char* text, char* color, int x, int y) {
+	setColor(color);
+	gotoxy(x, y);
+	printf("%s", text);
+
+	setColor(white);
+
 }

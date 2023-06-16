@@ -1,2 +1,4 @@
+void whale_main(void);
 
-int whale_main();
+#pragma once
+#include <stdio.h>

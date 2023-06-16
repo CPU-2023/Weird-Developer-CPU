@@ -18,9 +18,6 @@
     <ClCompile Include="main.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="flowing_dress.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="pengsoo.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -37,6 +34,15 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="whale.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Function.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRule.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="OverScreen.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -56,11 +62,11 @@
     <ClInclude Include="modules.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="flowing_dress.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="blue_night_in_jeju.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="console.h">
+      <Filter>소스 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

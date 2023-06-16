@@ -1,6 +1,5 @@
 #include "modules.h"
 #include "pengsoo.h"
-#include "flowing_dress.h"
 #include "pied_piper.h"
 #include "whale.h"
 #include "save_the_princess.h"
@@ -33,7 +32,7 @@ int main(void) {
 
 		case 3:
 			//rectangle(114, 29, 2, 1);
-			pied_piper_main();
+			//pied_piper_main();
 			break;
 
 		case 4:
@@ -61,7 +60,7 @@ int main(void) {
 void set_console(void)
 {
 	// set the console size
-	system("mode con:cols=120 lines=31");
+	system("mode con:cols=120 lines=30");
 	// hide cursor
 	set_cursor(0, 1);
 	// set title

@@ -143,9 +143,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="blue_night_in_jeju.c" />
-    <ClCompile Include="flowing_dress.c" />
+    <ClCompile Include="Function.c" />
+    <ClCompile Include="GameRule.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="modules.c" />
+    <ClCompile Include="OverScreen.c" />
     <ClCompile Include="pengsoo.c" />
     <ClCompile Include="pied_piper.c" />
     <ClCompile Include="save_the_princess.c" />
@@ -153,7 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="blue_night_in_jeju.h" />
-    <ClInclude Include="flowing_dress.h" />
+    <ClInclude Include="console.h" />
     <ClInclude Include="modules.h" />
     <ClInclude Include="pengsoo.h" />
     <ClInclude Include="pied_piper.h" />
