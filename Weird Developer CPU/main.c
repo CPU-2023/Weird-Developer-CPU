@@ -32,7 +32,7 @@ int main(void) {
 
 		case 3:
 			//rectangle(114, 29, 2, 1);
-			//pied_piper_main();
+			pied_piper_main();
 			break;
 
 		case 4:

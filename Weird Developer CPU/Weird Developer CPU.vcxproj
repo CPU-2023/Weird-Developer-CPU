@@ -150,6 +150,7 @@
     <ClCompile Include="OverScreen.c" />
     <ClCompile Include="pengsoo.c" />
     <ClCompile Include="pied_piper.c" />
+    <ClCompile Include="pied_piper.cpp" />
     <ClCompile Include="save_the_princess.c" />
     <ClCompile Include="whale.c" />
   </ItemGroup>
