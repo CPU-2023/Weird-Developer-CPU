@@ -48,11 +48,11 @@
     <ClCompile Include="pied_piper.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="flowing_dress_game.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pengsoo.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
     <ClInclude Include="whale.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -68,8 +68,14 @@
     <ClInclude Include="blue_night_in_jeju.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="pengsoo.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
     <ClInclude Include="console.h">
-      <Filter>소스 파일</Filter>
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="flowing_dress_game.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

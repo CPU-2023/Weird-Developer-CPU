@@ -4,6 +4,7 @@
 #include "whale.h"
 #include "save_the_princess.h"
 #include "blue_night_in_jeju.h"
+#include "flowing_dress_game.h"
 
 void set_console(void);
 void set_cursor(int flag, int size);
@@ -22,7 +23,7 @@ int main(void) {
 		{
 		case 1:
 			//rectangle(114, 29, 2, 1);
-			//flowing_dress_main();
+			flowing_dress_main();
 			break;
 
 		case 2:
